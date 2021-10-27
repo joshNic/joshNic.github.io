@@ -1,0 +1,36 @@
+h1{
+    background-color: rgba(114, 118, 119, 0.281);
+    color: rgba(134, 180, 7, 0.788);
+    text-decoration: underline;
+    font-family:serif;
+}
+.header{
+    text-align: center;
+}
+.underline{
+    text-decoration: underline;
+}
+.bold{
+    font-weight: bold;
+}
+.strike{
+    text-decoration: line-through;
+}
+.quote{
+    background-color: #FFFFA8;
+}
+.images{
+    align-items: flex-end;
+    float: right;
+}
+.cssimage{
+    width: 90px;
+    height: 30px;
+}
+.copyright{
+    align-items: flex-end;
+    float:right;
+}
+.links{
+    color: rgba(134, 180, 7, 0.788);
+}

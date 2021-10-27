@@ -1,0 +1,32 @@
+h1{
+    color: blue;
+}
+h2{
+    color: blue;
+}
+em{
+    color: #EC7063;
+}
+
+body{
+
+    background-color: #D3CDCC ;
+}
+img.imagecontainer{
+    width: 400px;
+    height: 400px;
+}
+img.zahir_image{
+    width: 300px;
+    height: 300px;
+}
+p{
+    font: italic 16px Arial, Helvetica, sans-serif;
+}
+a{
+    text-decoration: none;
+    text-decoration-line: none;
+}
+dt{
+    color: orange;
+}
