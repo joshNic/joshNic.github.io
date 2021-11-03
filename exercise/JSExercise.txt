@@ -84,7 +84,7 @@ function product(x,y,...more){
 }
 product(2,3,6);
 
-function findMax() {
+11) function findMax() {
 var i;
 var max = -Infinity;
 for (i = 0; i < arguments.length; i++) {
