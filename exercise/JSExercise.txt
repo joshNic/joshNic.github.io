@@ -1,0 +1,101 @@
+x = 1;
+var a = 5;
+var b = 10;
+var c = function(a, b, c) {
+var x = 10;
+document.write(x); // output: 10
+document.write(a);  // output: 8
+var f = function(a, b, c) {
+b = a;
+document.write(b); // output: 8
+b = c;
+var x = 5;
+}
+f(a,b,c);
+document.write(b);  // output: 9
+ }
+c(8,9,10);
+document.write(b);  // output: 10
+document.write(x);  // output: 1
+}
+
+2. Difference between a method and a Function:
+A method: A set of instructions that perform a task and is associated to the object or static in a class
+
+A Function is a set of instructions that perform a task independent of the object.
+
+3. 'this' in a java method refers to the current object in a method
+
+4. 'this' in a javascript method refers to the owner object
+
+5. 'this' in a javascript constructor function has no value, it is a substitute for the new object created.
+
+6. object of x
+
+7. A free variable is a variable referred to by a function that is
+not one of its parameters or local variables.
+
+8. Create an object that has properties with name = "fred" and major="music" and a property that is a function
+that takes 2 numbers and returns the smallest of the two, or the square of the two if they are equal.
+
+var Person = {
+     name :"Fred",
+    major : "music",
+
+    comp : function(x,y){
+        if(x>y){
+            return y;
+        } else if(x===y){
+            return x*x + y*y;
+        }else{
+            return x;
+        }
+    }
+};
+console.log(Person.comp(3,3));
+
+9. Write Javascript code for creating three Employee objects using the "new" keyword and a constructor function.
+Employee objects have the following fields: name, salary, position.
+
+
+function Employee(name, salary, position){
+    this.name = name;
+    this.salary = salary;
+    this.position = position;
+}
+var emp1 = new Employee("John", "198000", "manager");
+var emp2 = new Employee("Mike", "20000", "HR");
+var emp3 = new Employee("Joshua", "40000", "CIT");
+
+console.log(emp1)
+
+10. Write a Javascript function that takes any number of input arguments and returns the product of the
+arguments.
+
+function product(x,y,...more){
+    var total = x*y;
+    if(more.length > 0){
+        for(i=0; i<more.length; i++){
+            total*=more[i];  
+        }
+        
+    }
+    console.log(total);
+}
+product(2,3,6);
+
+function findMax() {
+var i;
+var max = -Infinity;
+for (i = 0; i < arguments.length; i++) {
+if (arguments[i] > max) {
+max = arguments[i];
+}
+}
+return max;
+}
+
+console.log(findMax(2,3,6));
+
+
+
