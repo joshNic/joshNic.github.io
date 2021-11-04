@@ -1,0 +1,296 @@
+1.
+x = 1;
+var a = 5;
+var b = 10;
+var c = function(a, b, c) {
+var x = 10;
+document.write(x); // output: 10
+document.write(a);  // output: 8
+var f = function(a, b, c) {
+b = a;
+document.write(b); // output: 8
+b = c;
+var x = 5;
+}
+f(a,b,c);
+document.write(b);  // output: 9
+ }
+c(8,9,10);
+document.write(b);  // output: 10
+document.write(x);  // output: 1
+}
+
+2.Define Global Scope and Local Scope in Javascript.
+Global scope: Allows access to functions defined in other files (such as jQuery
+functions).
+Local scope: Variables declared within a javascript function.
+
+3.
+(a) Do statements in Scope A have access to variables defined in Scope B and C? NO
+(b) Do statements in Scope B have access to variables defined in Scope A?
+YES
+(c) Do statements in Scope B have access to variables defined in Scope C?
+NO
+(d) Do statements in Scope C have access to variables defined in Scope A?
+YES
+(e) Do statements in Scope C have access to variables defined in Scope B?
+YES
+
+4.
+var x = 9;
+function myFunction() {
+return x * x;
+}
+document.write(myFunction()); // Output 81
+x = 5;
+document.write(myFunction());  // Output 25
+
+5.
+var foo = 1;
+function bar() {
+if (!foo) {
+var foo = 10;
+}
+alert(foo);  // output 10
+}
+bar();
+
+6.
+var count = (function () {
+    var counter = 0;
+    return {
+        add: function () {
+    counter += 1;
+    },
+    reset: function(){
+        console.log(counter);
+        counter = 0;
+        console.log(counter);
+    }
+     }})();
+
+     count.add();
+     count.add();
+     count.add();
+     count.reset();
+
+7.
+Free variable is counter
+A free variable is a variable referred to by a function that is not in its parameters.
+
+8.
+var count = (function () {
+    var counter = 0;
+    return {
+        make_adder: function (x) {
+    counter += x;
+    console.log(counter);
+    },
+     }})();
+
+    count.make_adder(5);
+    count.make_adder(5);
+    count.make_adder(5);
+
+9.
+Putting them in a module closure or using a module pattern
+
+10.
+var Employee = (function(){
+ var name,age,salary;
+
+  function getName(){
+
+   return this.name;
+  }
+  function setName(newname){
+
+    this.name = newname;
+  }
+  function getAge(){
+
+   return this.age;
+  }
+  function setAge(newage){
+
+    this.age = newage;
+  }
+  function getSalary(){
+
+   return this.salary;
+  }
+  function setSalary(newSalary){
+
+    this.salary = newSalary;
+
+   }
+  function increaseSalary(percentage){
+
+    setSalary(getSalary()+  getSalary() * salary/100);
+
+  }
+  function increamentAge(inc){
+
+    setAge(getAge()+inc);
+  }
+  return {
+
+    setAge:setAge,
+
+    setSalary:setSalary,
+
+    setName:setName,
+
+    increaseSalary: increaseSalary,
+
+    incrementAge: increamentAge
+  }
+
+})();
+
+11.
+var Employee = (function(){
+
+ var name,age,salary;
+
+  var getName = function(){
+    return this.name;
+  }
+  var getAge = function(){
+
+    return this.age;
+  }
+  var getSalary = function getSalary(){
+
+    return this.salary;
+  }
+
+  return {
+
+    setAge:function (newage){
+
+             this.age = newage;
+
+         },
+
+    setSalary:function(newSalary){
+
+          this.salary = newSalary;
+
+         },
+
+    setName: function(newname){
+
+          this.name = newname;
+
+         },
+
+    increaseSalary:  function(percentage){
+
+             setSalary(getSalary()+  getSalary() * salary/100);
+         },
+
+    incrementAge: function(inc){
+
+               setAge(getAge()+inc);
+
+          }
+  };
+
+})();
+
+12.
+var Employee = (function(){
+
+ var name,age,salary;
+
+// locally scoped Object
+
+  var employeeObject = {};
+
+  var getName = function(){
+
+    return this.name;
+
+  }
+  var getAge = function(){
+
+    return this.age;
+
+  }
+  var getSalary = function getSalary(){
+
+    return this.salary;
+  }
+
+  employeeObject.setAge = function (newage){
+
+             this.age = newage;
+
+         }
+  employeeObject.setSalary= function(newSalary){
+
+          this.salary = newSalary;
+
+       }
+
+  employeeObject.setName = function(newname){
+
+          this.name = newname;
+
+         }
+  employeeObject.increaseSalary =  function(percentage){
+
+          salary = salary+  percentage * salary/100;
+
+          getSalary();
+
+        }
+  employeeObject.incrementAge = function(){
+
+            age= age+1;
+
+            getAge();
+
+        }
+
+  return employeeObject;
+
+})();
+
+13.
+
+     Employee.address = “Kampala”;
+
+            Employee.setAddress = function(add) {
+
+                this.address = add;
+
+            }
+
+            Employee.getAddress = function() {
+
+                return this.address;
+
+            }
+
+14.
+const promise = new Promise((resolve, reject) => {
+reject(“Hattori”);
+});
+promise.then(val => alert(“Success: “ + val))
+ .catch(e => alert(“Error: “ + e));
+
+// output - Error: Hattori
+
+15.
+const promise = new Promise((resolve, reject) => {
+resolve(“Hattori”);
+setTimeout(()=> reject(“Yoshi”), 500);
+});
+promise.then(val => alert(“Success: “ + val))
+ .catch(e => alert(“Error: “ + e));
+
+//output- Success: Hattori
+
+
